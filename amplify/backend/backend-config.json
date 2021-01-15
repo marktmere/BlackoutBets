@@ -1,0 +1,10 @@
+{
+  "auth": {
+    "blackoutbetsae744949": {
+      "service": "Cognito",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": false
+    }
+  }
+}
