@@ -5,10 +5,33 @@ export const getBet = /* GraphQL */ `
   query GetBet($id: ID!) {
     getBet(id: $id) {
       id
-      Title
-      Betters
-      Odds
-      Description
+      betId
+      better {
+        id
+        accountId
+        username
+        email
+        phoneNumber
+        createdAt
+        updatedAt
+      }
+      bettees {
+        id
+        accountId
+        username
+        email
+        phoneNumber
+        createdAt
+        updatedAt
+      }
+      title
+      wager
+      odds
+      notes
+      createDate
+      endDate
+      Screenshot
+      Status
       createdAt
       updatedAt
     }
@@ -23,10 +46,66 @@ export const listBets = /* GraphQL */ `
     listBets(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        Title
-        Betters
-        Odds
-        Description
+        betId
+        better {
+          id
+          accountId
+          username
+          email
+          phoneNumber
+          createdAt
+          updatedAt
+        }
+        bettees {
+          id
+          accountId
+          username
+          email
+          phoneNumber
+          createdAt
+          updatedAt
+        }
+        title
+        wager
+        odds
+        notes
+        createDate
+        endDate
+        Screenshot
+        Status
+        createdAt
+        updatedAt
+      }
+      nextToken
+    }
+  }
+`;
+export const getDegenerate = /* GraphQL */ `
+  query GetDegenerate($id: ID!) {
+    getDegenerate(id: $id) {
+      id
+      accountId
+      username
+      email
+      phoneNumber
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const listDegenerates = /* GraphQL */ `
+  query ListDegenerates(
+    $filter: ModelDegenerateFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listDegenerates(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        accountId
+        username
+        email
+        phoneNumber
         createdAt
         updatedAt
       }

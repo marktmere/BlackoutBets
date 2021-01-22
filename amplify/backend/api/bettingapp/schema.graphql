@@ -1,7 +1,25 @@
 type Bet @model {
-  id: ID!
-  Title: String!
-  Betters: [String!]
-  Odds: String
-  Description: String
+  betId: ID! # auto-pop to unique identifyer
+  better: Degenerate! # auto-pop to bet creator
+  bettees: [Degenerate!] # one or people in on the action
+  title: String!
+  wager: String!
+  odds: String! # default 1:1
+  notes: String
+  createDate: String! # auto-pop to today
+  endDate: String
+  Screenshot: String # S3 image url
+  Status: Status!
+}
+
+type Degenerate @model {
+  accountId: ID!
+  username: String!
+  email: String!
+  phoneNumber: String!
+}
+
+enum Status {
+  ACTIVE
+  COMPLETE
 }
