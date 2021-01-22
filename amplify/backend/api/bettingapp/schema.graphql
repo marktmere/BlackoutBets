@@ -1,0 +1,7 @@
+type Bet @model {
+  id: ID!
+  Title: String!
+  Betters: [String!]
+  Odds: String
+  Description: String
+}
